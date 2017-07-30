@@ -2,6 +2,21 @@
 <head>
 <link rel="stylesheet" href="public/main.css">
 </head>
+<script>
+
+    /*table function */
+
+    function show(shown, hidden) {
+	var fname =document.getElementById('fname').value;
+	var email =document.getElementById('email').value;
+	if(fname && email){
+	document.getElementById(shown).style.display='block';
+        document.getElementById(hidden).style.display='none';
+		document.getElementById('errormessage').style.display='none';
+	} 	
+        
+    }
+</script>
 <body>
 <div class="eight columns">
     <ul id="menu-main-top" class="top-nav nav-bar hide-for-small">
@@ -31,23 +46,28 @@
   <p>
   Please reach US at <font style="color:blue">hr@tetrasystemsinc.com</font>, We will get back to you at the earliest possible.</p>
    
-</div><div class="container">
+</div>
+<div style="display: none" id="thankyoumessage" class="container">
+  <p>
+  Thank you for contacting us, we will get in touch with you as sooner as possible.</p>
+   
+</div><div id="contactform" class="container">
   <form >
 
     <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
 
     <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name.."> <label for="mobile">Mobile</label>
-    <input type="text" id="mobile" name="lastname" placeholder="Your last Mobile Number..">
+    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required> <label for="mobile">Mobile</label>
+    <input type="text" id="mobile" name="mobile" placeholder="Your last Mobile Number..">
 	 <label for="email">Email</label>
-    <input type="text" id="email" name="lastname" placeholder="Your email id..">
+    <input type="text" id="email" name="email" placeholder="Your email id.." required>
 
   
     <label for="subject">Subject</label>
     <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
-    <input type="button" value="Submit">
+    <input type="submit" onclick="show('thankyoumessage','contactform')" value="Submit">
 
   </form>
 </div>
